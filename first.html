@@ -14,16 +14,32 @@
             height: 110px;
             background: #EE6723;
             color: green;
-            opacity:0.5;
+            opacity: 0.5;
             -webkit-transform: rotate(10deg);
         }
     </style>
 </head>
 
 <body id="mmm">
-    <div id="holder">
+    <p> This is a css test !</p>
+    <div id="holder" class="aclass">
         Drag your file here
     </div>
+    <script>
+        var rotate = 10;
+        function loop() {
+            var elem = document.getElementById("holder");
+            var value = "rotateZ(" + rotate + "deg)";
+            elem.style.webkitTransform = value;
+
+            window.webkitRequestAnimationFrame(loop);
+            rotate += 10;
+            rotate = rotate % 360;
+            console.log("run loop");
+        }
+        loop();
+
+    </script>
 
 </body>
 
