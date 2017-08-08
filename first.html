@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spec Export - Sketch Measure 2.4</title>
+    <style type="text/css">
+        #holder {
+            position: absolute;
+            top: 200px;
+            width: 110px;
+            height: 110px;
+            background: #EE6723;
+            color: green;
+            opacity:0.5;
+            -webkit-transform: rotate(10deg);
+        }
+    </style>
+</head>
+
+<body id="mmm">
+    <div id="holder">
+        Drag your file here
+    </div>
+
+</body>
+
+<script>
+    const holder = document.getElementById('holder')
+    holder.ondragover = () => {
+        return false;
+    }
+    holder.ondragleave = holder.ondragend = () => {
+        return false;
+    }
+    holder.ondrop = (e) => {
+        e.preventDefault()
+        for (let f of e.dataTransfer.files) {
+            console.log('File(s) you dragged here: ', f.path)
+        }
+        return false;
+    }
+
+</script>
+
+</html>
